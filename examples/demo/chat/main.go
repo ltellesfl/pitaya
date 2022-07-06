@@ -10,15 +10,15 @@ import (
 
 	"strings"
 
+	"github.com/ltellesfl/pitaya"
+	"github.com/ltellesfl/pitaya/acceptor"
+	"github.com/ltellesfl/pitaya/component"
+	"github.com/ltellesfl/pitaya/config"
+	"github.com/ltellesfl/pitaya/groups"
+	"github.com/ltellesfl/pitaya/logger"
+	"github.com/ltellesfl/pitaya/serialize/json"
+	"github.com/ltellesfl/pitaya/timer"
 	"github.com/spf13/viper"
-	"github.com/topfreegames/pitaya"
-	"github.com/topfreegames/pitaya/acceptor"
-	"github.com/topfreegames/pitaya/component"
-	"github.com/topfreegames/pitaya/config"
-	"github.com/topfreegames/pitaya/groups"
-	"github.com/topfreegames/pitaya/logger"
-	"github.com/topfreegames/pitaya/serialize/json"
-	"github.com/topfreegames/pitaya/timer"
 )
 
 type (

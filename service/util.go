@@ -27,17 +27,17 @@ import (
 	"reflect"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/topfreegames/pitaya/component"
-	"github.com/topfreegames/pitaya/conn/message"
-	"github.com/topfreegames/pitaya/constants"
-	e "github.com/topfreegames/pitaya/errors"
-	"github.com/topfreegames/pitaya/logger"
-	"github.com/topfreegames/pitaya/pipeline"
-	"github.com/topfreegames/pitaya/protos"
-	"github.com/topfreegames/pitaya/route"
-	"github.com/topfreegames/pitaya/serialize"
-	"github.com/topfreegames/pitaya/session"
-	"github.com/topfreegames/pitaya/util"
+	"github.com/ltellesfl/pitaya/component"
+	"github.com/ltellesfl/pitaya/conn/message"
+	"github.com/ltellesfl/pitaya/constants"
+	e "github.com/ltellesfl/pitaya/errors"
+	"github.com/ltellesfl/pitaya/logger"
+	"github.com/ltellesfl/pitaya/pipeline"
+	"github.com/ltellesfl/pitaya/protos"
+	"github.com/ltellesfl/pitaya/route"
+	"github.com/ltellesfl/pitaya/serialize"
+	"github.com/ltellesfl/pitaya/session"
+	"github.com/ltellesfl/pitaya/util"
 )
 
 var errInvalidMsg = errors.New("invalid message type provided")

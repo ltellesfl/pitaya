@@ -25,13 +25,13 @@ import (
 	"os"
 	"testing"
 
-	"go.etcd.io/etcd/integration"
 	"github.com/golang/mock/gomock"
+	"github.com/ltellesfl/pitaya/config"
+	"github.com/ltellesfl/pitaya/constants"
+	"github.com/ltellesfl/pitaya/session"
+	"github.com/ltellesfl/pitaya/session/mocks"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/config"
-	"github.com/topfreegames/pitaya/constants"
-	"github.com/topfreegames/pitaya/session"
-	"github.com/topfreegames/pitaya/session/mocks"
+	"go.etcd.io/etcd/integration"
 )
 
 var etcdGroupService *EtcdGroupService

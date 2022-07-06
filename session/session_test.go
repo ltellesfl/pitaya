@@ -34,12 +34,12 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/golang/protobuf/proto"
 	"github.com/google/uuid"
+	"github.com/ltellesfl/pitaya/constants"
+	"github.com/ltellesfl/pitaya/helpers"
+	"github.com/ltellesfl/pitaya/protos"
+	"github.com/ltellesfl/pitaya/session/mocks"
 	nats "github.com/nats-io/nats.go"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/constants"
-	"github.com/topfreegames/pitaya/helpers"
-	"github.com/topfreegames/pitaya/protos"
-	"github.com/topfreegames/pitaya/session/mocks"
 )
 
 var update = flag.Bool("update", false, "update .golden files")

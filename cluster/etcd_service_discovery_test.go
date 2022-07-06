@@ -26,11 +26,11 @@ import (
 	"testing"
 	"time"
 
+	"github.com/ltellesfl/pitaya/config"
+	"github.com/ltellesfl/pitaya/constants"
+	"github.com/ltellesfl/pitaya/helpers"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/config"
-	"github.com/topfreegames/pitaya/constants"
-	"github.com/topfreegames/pitaya/helpers"
 	"go.etcd.io/etcd/clientv3"
 )
 

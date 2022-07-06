@@ -35,10 +35,10 @@ import (
 	protobuf "github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"github.com/jhump/protoreflect/desc"
 	"github.com/jhump/protoreflect/dynamic"
+	"github.com/ltellesfl/pitaya/conn/message"
+	"github.com/ltellesfl/pitaya/logger"
+	"github.com/ltellesfl/pitaya/protos"
 	"github.com/sirupsen/logrus"
-	"github.com/topfreegames/pitaya/conn/message"
-	"github.com/topfreegames/pitaya/logger"
-	"github.com/topfreegames/pitaya/protos"
 )
 
 // Command struct. Save the input and output type and proto descriptor for each

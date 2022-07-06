@@ -7,13 +7,13 @@ import (
 
 	"strings"
 
-	"github.com/topfreegames/pitaya"
-	"github.com/topfreegames/pitaya/acceptor"
-	"github.com/topfreegames/pitaya/cluster"
-	"github.com/topfreegames/pitaya/component"
-	"github.com/topfreegames/pitaya/examples/demo/cluster/services"
-	"github.com/topfreegames/pitaya/route"
-	"github.com/topfreegames/pitaya/serialize/protobuf"
+	"github.com/ltellesfl/pitaya"
+	"github.com/ltellesfl/pitaya/acceptor"
+	"github.com/ltellesfl/pitaya/cluster"
+	"github.com/ltellesfl/pitaya/component"
+	"github.com/ltellesfl/pitaya/examples/demo/cluster/services"
+	"github.com/ltellesfl/pitaya/route"
+	"github.com/ltellesfl/pitaya/serialize/protobuf"
 )
 
 func configureBackend() {

@@ -28,16 +28,16 @@ import (
 
 	"github.com/golang/mock/gomock"
 	"github.com/golang/protobuf/proto"
+	"github.com/ltellesfl/pitaya/constants"
+	"github.com/ltellesfl/pitaya/helpers"
+	"github.com/ltellesfl/pitaya/metrics"
+	metricsmocks "github.com/ltellesfl/pitaya/metrics/mocks"
+	"github.com/ltellesfl/pitaya/protos"
+	protosmocks "github.com/ltellesfl/pitaya/protos/mocks"
+	"github.com/ltellesfl/pitaya/session"
 	nats "github.com/nats-io/nats.go"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/constants"
-	"github.com/topfreegames/pitaya/helpers"
-	"github.com/topfreegames/pitaya/metrics"
-	metricsmocks "github.com/topfreegames/pitaya/metrics/mocks"
-	"github.com/topfreegames/pitaya/protos"
-	protosmocks "github.com/topfreegames/pitaya/protos/mocks"
-	"github.com/topfreegames/pitaya/session"
 )
 
 func TestNewNatsRPCServer(t *testing.T) {

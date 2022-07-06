@@ -25,13 +25,13 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/ltellesfl/pitaya/cluster"
+	"github.com/ltellesfl/pitaya/config"
+	"github.com/ltellesfl/pitaya/constants"
+	"github.com/ltellesfl/pitaya/logger"
+	"github.com/ltellesfl/pitaya/session"
 	"go.etcd.io/etcd/clientv3"
 	"go.etcd.io/etcd/clientv3/namespace"
-	"github.com/topfreegames/pitaya/cluster"
-	"github.com/topfreegames/pitaya/config"
-	"github.com/topfreegames/pitaya/constants"
-	"github.com/topfreegames/pitaya/logger"
-	"github.com/topfreegames/pitaya/session"
 )
 
 // ETCDBindingStorage module that uses etcd to keep in which frontend server each user is bound

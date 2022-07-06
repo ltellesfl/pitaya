@@ -23,8 +23,8 @@ package cluster
 import (
 	"fmt"
 
+	"github.com/ltellesfl/pitaya/logger"
 	nats "github.com/nats-io/nats.go"
-	"github.com/topfreegames/pitaya/logger"
 )
 
 func getChannel(serverType, serverID string) string {

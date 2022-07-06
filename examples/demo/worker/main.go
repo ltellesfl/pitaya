@@ -6,12 +6,12 @@ import (
 
 	"strings"
 
+	"github.com/ltellesfl/pitaya"
+	"github.com/ltellesfl/pitaya/acceptor"
+	"github.com/ltellesfl/pitaya/component"
+	"github.com/ltellesfl/pitaya/examples/demo/worker/services"
+	"github.com/ltellesfl/pitaya/serialize/json"
 	"github.com/spf13/viper"
-	"github.com/topfreegames/pitaya"
-	"github.com/topfreegames/pitaya/acceptor"
-	"github.com/topfreegames/pitaya/component"
-	"github.com/topfreegames/pitaya/examples/demo/worker/services"
-	"github.com/topfreegames/pitaya/serialize/json"
 )
 
 func configureMetagame() {

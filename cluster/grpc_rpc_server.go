@@ -26,9 +26,9 @@ import (
 
 	"google.golang.org/grpc"
 
-	"github.com/topfreegames/pitaya/config"
-	"github.com/topfreegames/pitaya/metrics"
-	"github.com/topfreegames/pitaya/protos"
+	"github.com/ltellesfl/pitaya/config"
+	"github.com/ltellesfl/pitaya/metrics"
+	"github.com/ltellesfl/pitaya/protos"
 )
 
 // GRPCServer rpc server struct

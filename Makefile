@@ -142,7 +142,7 @@ test-coverage-func coverage-func: test-coverage merge-profiles
 	@go tool cover -func=coverage-all.out | egrep -v "100.0[%]"
 
 serializer-mock:
-	@mockgen github.com/topfreegames/pitaya/serialize Serializer | sed 's/mock_serialize/mocks/' > serialize/mocks/serializer.go
+	@mockgen github.com/ltellesfl/pitaya/serialize Serializer | sed 's/mock_serialize/mocks/' > serialize/mocks/serializer.go
 
 acceptor-mock:
-	@mockgen github.com/topfreegames/pitaya/acceptor Acceptor | sed 's/mock_acceptor/mocks/' > mocks/acceptor.go
+	@mockgen github.com/ltellesfl/pitaya/acceptor Acceptor | sed 's/mock_acceptor/mocks/' > mocks/acceptor.go

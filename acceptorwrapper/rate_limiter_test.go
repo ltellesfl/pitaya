@@ -26,8 +26,8 @@ import (
 	"time"
 
 	"github.com/golang/mock/gomock"
+	"github.com/ltellesfl/pitaya/mocks"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/mocks"
 )
 
 func TestRateLimiterGetNextMessage(t *testing.T) {

@@ -5,11 +5,11 @@ import (
 	"time"
 
 	"github.com/golang/mock/gomock"
+	"github.com/ltellesfl/pitaya/conn/message"
+	"github.com/ltellesfl/pitaya/helpers"
+	"github.com/ltellesfl/pitaya/mocks"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/conn/message"
-	"github.com/topfreegames/pitaya/helpers"
-	"github.com/topfreegames/pitaya/mocks"
 )
 
 func TestSendRequestShouldTimeout(t *testing.T) {

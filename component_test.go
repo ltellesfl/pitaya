@@ -23,9 +23,9 @@ package pitaya
 import (
 	"testing"
 
+	"github.com/ltellesfl/pitaya/component"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/component"
 )
 
 type MyComp struct {
