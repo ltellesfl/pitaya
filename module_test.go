@@ -23,10 +23,10 @@ package pitaya
 import (
 	"testing"
 
+	"github.com/ltellesfl/pitaya/component"
+	"github.com/ltellesfl/pitaya/interfaces"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/component"
-	"github.com/topfreegames/pitaya/interfaces"
 )
 
 type MyMod struct {
@@ -82,9 +82,7 @@ func TestGetModule(t *testing.T) {
 }
 
 func TestStartupModules(t *testing.T) {
-	
-	c := initGroups(t)
-	defer c.Terminate(t)
+	initApp()
 	resetModules()
 	Configure(true, "testtype", Standalone, map[string]string{}, viper.New())
 
@@ -107,9 +105,7 @@ func TestStartupModules(t *testing.T) {
 
 func TestShutdownModules(t *testing.T) {
 	resetModules()
-	
-	c := initGroups(t)
-	defer c.Terminate(t)
+	initApp()
 	Configure(true, "testtype", Standalone, map[string]string{}, viper.New())
 
 	err := RegisterModule(&MyMod{name: "mod1"}, "mod1")

@@ -31,26 +31,26 @@ import (
 	"time"
 
 	"github.com/google/uuid"
+	"github.com/ltellesfl/pitaya/acceptor"
+	"github.com/ltellesfl/pitaya/cluster"
+	"github.com/ltellesfl/pitaya/config"
+	"github.com/ltellesfl/pitaya/conn/codec"
+	"github.com/ltellesfl/pitaya/conn/message"
+	"github.com/ltellesfl/pitaya/constants"
+	e "github.com/ltellesfl/pitaya/errors"
+	"github.com/ltellesfl/pitaya/groups"
+	"github.com/ltellesfl/pitaya/helpers"
+	"github.com/ltellesfl/pitaya/logger"
+	"github.com/ltellesfl/pitaya/metrics"
+	"github.com/ltellesfl/pitaya/route"
+	"github.com/ltellesfl/pitaya/router"
+	"github.com/ltellesfl/pitaya/serialize/json"
+	"github.com/ltellesfl/pitaya/session"
+	"github.com/ltellesfl/pitaya/timer"
 	opentracing "github.com/opentracing/opentracing-go"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/acceptor"
-	"github.com/topfreegames/pitaya/cluster"
-	"github.com/topfreegames/pitaya/config"
-	"github.com/topfreegames/pitaya/conn/codec"
-	"github.com/topfreegames/pitaya/conn/message"
-	"github.com/topfreegames/pitaya/constants"
-	e "github.com/topfreegames/pitaya/errors"
-	"github.com/topfreegames/pitaya/groups"
-	"github.com/topfreegames/pitaya/helpers"
-	"github.com/topfreegames/pitaya/logger"
-	"github.com/topfreegames/pitaya/metrics"
-	"github.com/topfreegames/pitaya/route"
-	"github.com/topfreegames/pitaya/router"
-	"github.com/topfreegames/pitaya/serialize/json"
-	"github.com/topfreegames/pitaya/session"
-	"github.com/topfreegames/pitaya/timer"
 	"go.etcd.io/etcd/tests/v3/integration"
 )
 
@@ -121,7 +121,7 @@ func initApp() {
 	}
 }
 
-func initGroups(t *testing.T) *integration.ClusterV3{
+func initGroups(t *testing.T) *integration.ClusterV3 {
 	integration.BeforeTest(t)
 	c := integration.NewClusterV3(t, &integration.ClusterConfig{Size: 1})
 	cli := c.RandClient()
@@ -152,7 +152,7 @@ func TestConfigure(t *testing.T) {
 func TestAddAcceptor(t *testing.T) {
 	c := initGroups(t)
 	defer c.Terminate(t)
-	
+
 	acc := acceptor.NewTCPAcceptor("0.0.0.0:0")
 	for _, table := range tables {
 		t.Run(table.serverType, func(t *testing.T) {
@@ -273,7 +273,7 @@ func TestSetServiceDiscovery(t *testing.T) {
 
 func TestAddMetricsReporter(t *testing.T) {
 	Configure(true, "testtype", Cluster, map[string]string{}, viper.New())
-	
+
 	app.config = config.NewConfig()
 
 	r, err := metrics.NewStatsdReporter(app.config, app.server.Type, map[string]string{
@@ -732,8 +732,8 @@ func TestRegisterRPCJob(t *testing.T) {
 
 	t.Run("register_twice", func(t *testing.T) {
 		cfg := viper.New()
-	c := initGroups(t)
-	defer c.Terminate(t)
+		c := initGroups(t)
+		defer c.Terminate(t)
 		Configure(true, "testtype", Cluster, map[string]string{}, cfg)
 		err := StartWorker(GetConfig())
 		assert.NoError(t, err)

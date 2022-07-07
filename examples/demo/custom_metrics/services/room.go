@@ -3,9 +3,9 @@ package services
 import (
 	"context"
 
-	"github.com/topfreegames/pitaya"
-	"github.com/topfreegames/pitaya/component"
-	"github.com/topfreegames/pitaya/examples/demo/custom_metrics/messages"
+	"github.com/ltellesfl/pitaya"
+	"github.com/ltellesfl/pitaya/component"
+	"github.com/ltellesfl/pitaya/examples/demo/custom_metrics/messages"
 )
 
 // Room server

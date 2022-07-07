@@ -21,8 +21,8 @@
 package pitaya
 
 import (
-	"github.com/topfreegames/pitaya/component"
-	"github.com/topfreegames/pitaya/logger"
+	"github.com/ltellesfl/pitaya/component"
+	"github.com/ltellesfl/pitaya/logger"
 )
 
 var (

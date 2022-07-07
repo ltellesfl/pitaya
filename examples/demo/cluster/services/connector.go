@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/topfreegames/pitaya"
-	"github.com/topfreegames/pitaya/component"
-	"github.com/topfreegames/pitaya/examples/demo/protos"
-	pitayaprotos "github.com/topfreegames/pitaya/protos"
+	"github.com/ltellesfl/pitaya"
+	"github.com/ltellesfl/pitaya/component"
+	"github.com/ltellesfl/pitaya/examples/demo/protos"
+	pitayaprotos "github.com/ltellesfl/pitaya/protos"
 )
 
 // ConnectorRemote is a remote that will receive rpc's

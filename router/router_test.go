@@ -6,12 +6,12 @@ import (
 	"testing"
 
 	"github.com/golang/mock/gomock"
+	"github.com/ltellesfl/pitaya/cluster"
+	"github.com/ltellesfl/pitaya/cluster/mocks"
+	"github.com/ltellesfl/pitaya/conn/message"
+	"github.com/ltellesfl/pitaya/protos"
+	"github.com/ltellesfl/pitaya/route"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/cluster"
-	"github.com/topfreegames/pitaya/cluster/mocks"
-	"github.com/topfreegames/pitaya/conn/message"
-	"github.com/topfreegames/pitaya/protos"
-	"github.com/topfreegames/pitaya/route"
 )
 
 var (

@@ -23,8 +23,8 @@ package cluster
 import (
 	"fmt"
 
+	"github.com/ltellesfl/pitaya/logger"
 	nats "github.com/nats-io/nats.go"
-	"github.com/topfreegames/pitaya/logger"
 )
 
 func getChannel(serverType, serverID string) string {
@@ -38,7 +38,7 @@ func setupNatsConn(connectString string, appDieChan chan bool, options ...nats.O
 			logger.Log.Warn("disconnected from nats!")
 		}),
 		nats.ReconnectHandler(func(nc *nats.Conn) {
-			logger.Log.Warnf("reconnected to nats server %s with address %s in cluster %s!", nc.ConnectedServerName(), nc.ConnectedAddr(), nc.ConnectedClusterName() )
+			logger.Log.Warnf("reconnected to nats server %s with address %s in cluster %s!", nc.ConnectedServerName(), nc.ConnectedAddr(), nc.ConnectedClusterName())
 		}),
 		nats.ClosedHandler(func(nc *nats.Conn) {
 			err := nc.LastError()

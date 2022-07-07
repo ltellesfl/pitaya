@@ -23,9 +23,9 @@ package pitaya
 import (
 	"testing"
 
+	"github.com/ltellesfl/pitaya/component"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/component"
 )
 
 type MyComp struct {
@@ -63,9 +63,7 @@ func TestRegisterRemote(t *testing.T) {
 }
 
 func TestStartupComponents(t *testing.T) {
-	
-	c := initGroups(t)
-	defer c.Terminate(t)
+	initApp()
 	resetComps()
 	Configure(true, "testtype", Standalone, map[string]string{}, viper.New())
 
@@ -77,9 +75,7 @@ func TestStartupComponents(t *testing.T) {
 
 func TestShutdownComponents(t *testing.T) {
 	resetComps()
-	
-	c := initGroups(t)
-	defer c.Terminate(t)
+	initApp()
 	Configure(true, "testtype", Standalone, map[string]string{}, viper.New())
 
 	Register(&MyComp{})

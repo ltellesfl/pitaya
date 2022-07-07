@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/topfreegames/pitaya"
-	"github.com/topfreegames/pitaya/component"
-	"github.com/topfreegames/pitaya/config"
-	"github.com/topfreegames/pitaya/examples/demo/protos"
-	"github.com/topfreegames/pitaya/groups"
-	"github.com/topfreegames/pitaya/timer"
+	"github.com/ltellesfl/pitaya"
+	"github.com/ltellesfl/pitaya/component"
+	"github.com/ltellesfl/pitaya/config"
+	"github.com/ltellesfl/pitaya/examples/demo/protos"
+	"github.com/ltellesfl/pitaya/groups"
+	"github.com/ltellesfl/pitaya/timer"
 )
 
 // Room represents a component that contains a bundle of room related handler

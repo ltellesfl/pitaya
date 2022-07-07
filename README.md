@@ -1,19 +1,19 @@
 # pitaya [![Build Status][7]][8] [![Coverage Status][9]][10] [![GoDoc][1]][2] [![Docs][11]][12] [![Go Report Card][3]][4] [![MIT licensed][5]][6]
 
-*WARNING*: This version has entered the deprecation flow described [here](https://github.com/topfreegames/pitaya/issues/240), we strongly recommend to use the new version of Pitaya v2.x found in the [main branch](https://github.com/topfreegames/pitaya/tree/main).
+*WARNING*: This version has entered the deprecation flow described [here](https://github.com/ltellesfl/pitaya/issues/240), we strongly recommend to use the new version of Pitaya v2.x found in the [main branch](https://github.com/ltellesfl/pitaya/tree/main).
 
 ---
 
-[1]: https://godoc.org/github.com/topfreegames/pitaya?status.svg
-[2]: https://godoc.org/github.com/topfreegames/pitaya
-[3]: https://goreportcard.com/badge/github.com/topfreegames/pitaya
-[4]: https://goreportcard.com/report/github.com/topfreegames/pitaya
+[1]: https://godoc.org/github.com/ltellesfl/pitaya?status.svg
+[2]: https://godoc.org/github.com/ltellesfl/pitaya
+[3]: https://goreportcard.com/badge/github.com/ltellesfl/pitaya
+[4]: https://goreportcard.com/report/github.com/ltellesfl/pitaya
 [5]: https://img.shields.io/badge/license-MIT-blue.svg
 [6]: LICENSE
-[7]: https://github.com/topfreegames/pitaya/actions/workflows/tests.yaml/badge.svg
-[8]: https://github.com/topfreegames/pitaya/actions/workflows/tests.yaml
-[9]: https://coveralls.io/repos/github/topfreegames/pitaya/badge.svg?branch=master
-[10]: https://coveralls.io/github/topfreegames/pitaya?branch=master
+[7]: https://github.com/ltellesfl/pitaya/actions/workflows/tests.yaml/badge.svg
+[8]: https://github.com/ltellesfl/pitaya/actions/workflows/tests.yaml
+[9]: https://coveralls.io/repos/github/ltellesfl/pitaya/badge.svg?branch=master
+[10]: https://coveralls.io/github/ltellesfl/pitaya?branch=master
 [11]: https://readthedocs.org/projects/pitaya/badge/?version=latest
 [12]: https://pitaya.readthedocs.io/en/latest/?badge=latest
 
@@ -32,7 +32,7 @@ It provides a basic development framework for distributed multiplayer games and 
 ### Installing
 clone the repo
 ```
-git clone https://github.com/topfreegames/pitaya.git
+git clone https://github.com/ltellesfl/pitaya.git
 ```
 setup pitaya dependencies
 ```
@@ -56,7 +56,7 @@ run the room backend server from the cluster_grpc example
 make run-cluster-grpc-example-room
 ```
 
-Now there should be 2 pitaya servers running, a frontend connector and a backend room. To send requests, use a REPL client for pitaya [pitaya-cli](https://github.com/topfreegames/pitaya-cli). 
+Now there should be 2 pitaya servers running, a frontend connector and a backend room. To send requests, use a REPL client for pitaya [pitaya-cli](https://github.com/ltellesfl/pitaya-cli). 
 
 ```
 $ pitaya-cli
@@ -95,13 +95,13 @@ If you have found a security vulnerability, please email security@tfgco.com
 - Other pitaya-related projects
   + [libpitaya-cluster](https://github.com/topfreegames/libpitaya-cluster)
   + [libpitaya](https://github.com/topfreegames/libpitaya)
-  + [pitaya-admin](https://github.com/topfreegames/pitaya-admin)
-  + [pitaya-bot](https://github.com/topfreegames/pitaya-bot)
-  + [pitaya-cli](https://github.com/topfreegames/pitaya-cli)
+  + [pitaya-admin](https://github.com/ltellesfl/pitaya-admin)
+  + [pitaya-bot](https://github.com/ltellesfl/pitaya-bot)
+  + [pitaya-cli](https://github.com/ltellesfl/pitaya-cli)
   + [pitaya-protos](https://github.com/topfreegames/pitaya-protos)
 
 - Documents
-  + [API Reference](https://godoc.org/github.com/topfreegames/pitaya)
+  + [API Reference](https://godoc.org/github.com/ltellesfl/pitaya)
   + [In-depth documentation](https://pitaya.readthedocs.io/en/latest/)
 
 - Demo

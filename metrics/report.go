@@ -25,10 +25,10 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/topfreegames/pitaya/constants"
-	"github.com/topfreegames/pitaya/errors"
+	"github.com/ltellesfl/pitaya/constants"
+	"github.com/ltellesfl/pitaya/errors"
 
-	pcontext "github.com/topfreegames/pitaya/context"
+	pcontext "github.com/ltellesfl/pitaya/context"
 )
 
 // ReportTimingFromCtx reports the latency from the context

@@ -21,7 +21,7 @@
 package codec
 
 import (
-	"github.com/topfreegames/pitaya/conn/packet"
+	"github.com/ltellesfl/pitaya/conn/packet"
 )
 
 // PomeloPacketEncoder struct

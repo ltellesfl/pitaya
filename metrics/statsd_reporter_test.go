@@ -28,9 +28,9 @@ import (
 
 	"github.com/golang/mock/gomock"
 	"github.com/google/uuid"
+	"github.com/ltellesfl/pitaya/config"
+	metricsmocks "github.com/ltellesfl/pitaya/metrics/mocks"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/config"
-	metricsmocks "github.com/topfreegames/pitaya/metrics/mocks"
 )
 
 func TestNewStatsdReporter(t *testing.T) {
@@ -126,34 +126,33 @@ func TestReportCount(t *testing.T) {
 }
 
 func TestReportGauge(t *testing.T) {
-        ctrl := gomock.NewController(t)
-        defer ctrl.Finish()
-        mockClient := metricsmocks.NewMockClient(ctrl)
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+	mockClient := metricsmocks.NewMockClient(ctrl)
 
-        cfg := config.NewConfig()
-        sr, err := NewStatsdReporter(cfg, "svType", map[string]string{
-                "defaultTag": "value",
-        }, mockClient)
-        assert.NoError(t, err)
+	cfg := config.NewConfig()
+	sr, err := NewStatsdReporter(cfg, "svType", map[string]string{
+		"defaultTag": "value",
+	}, mockClient)
+	assert.NoError(t, err)
 
-        expectedValue := 123.1
-        expectedMetric := uuid.New().String()
-        customTags := map[string]string{
-                "tag1:": uuid.New().String(),
-                "tag2:": uuid.New().String(),
-        }
-        mockClient.EXPECT().Gauge(expectedMetric, expectedValue, gomock.Any(), sr.rate).Do(func(n string, v float64, tags []string, r float64) {
-                for k, v := range customTags {
-                        assert.Contains(t, tags, fmt.Sprintf("%s:%s", k, v))
-                }
-                assert.Contains(t, tags, fmt.Sprintf("serverType:%s", sr.serverType))
-                assert.Contains(t, tags, "defaultTag:value")
-        })
+	expectedValue := 123.1
+	expectedMetric := uuid.New().String()
+	customTags := map[string]string{
+		"tag1:": uuid.New().String(),
+		"tag2:": uuid.New().String(),
+	}
+	mockClient.EXPECT().Gauge(expectedMetric, expectedValue, gomock.Any(), sr.rate).Do(func(n string, v float64, tags []string, r float64) {
+		for k, v := range customTags {
+			assert.Contains(t, tags, fmt.Sprintf("%s:%s", k, v))
+		}
+		assert.Contains(t, tags, fmt.Sprintf("serverType:%s", sr.serverType))
+		assert.Contains(t, tags, "defaultTag:value")
+	})
 
-        err = sr.ReportGauge(expectedMetric, customTags, float64(expectedValue))
-        assert.NoError(t, err)
+	err = sr.ReportGauge(expectedMetric, customTags, float64(expectedValue))
+	assert.NoError(t, err)
 }
-
 
 func TestReportCountError(t *testing.T) {
 	ctrl := gomock.NewController(t)
@@ -172,18 +171,17 @@ func TestReportCountError(t *testing.T) {
 }
 
 func TestReportGaugeError(t *testing.T) {
-        ctrl := gomock.NewController(t)
-        defer ctrl.Finish()
-        mockClient := metricsmocks.NewMockClient(ctrl)
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+	mockClient := metricsmocks.NewMockClient(ctrl)
 
-        cfg := config.NewConfig()
-        sr, err := NewStatsdReporter(cfg, "svType", map[string]string{}, mockClient)
-        assert.NoError(t, err)
+	cfg := config.NewConfig()
+	sr, err := NewStatsdReporter(cfg, "svType", map[string]string{}, mockClient)
+	assert.NoError(t, err)
 
-        expectedError := errors.New("some error")
-        mockClient.EXPECT().Gauge(gomock.Any(), gomock.Any(), gomock.Any(), sr.rate).Return(expectedError)
+	expectedError := errors.New("some error")
+	mockClient.EXPECT().Gauge(gomock.Any(), gomock.Any(), gomock.Any(), sr.rate).Return(expectedError)
 
-        err = sr.ReportGauge("123", map[string]string{}, float64(123.1))
-        assert.Equal(t, expectedError, err)
+	err = sr.ReportGauge("123", map[string]string{}, float64(123.1))
+	assert.Equal(t, expectedError, err)
 }
-

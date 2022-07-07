@@ -30,18 +30,18 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/golang/protobuf/proto"
 	"github.com/google/uuid"
+	"github.com/ltellesfl/pitaya/conn/message"
+	"github.com/ltellesfl/pitaya/constants"
+	e "github.com/ltellesfl/pitaya/errors"
+	"github.com/ltellesfl/pitaya/helpers"
+	"github.com/ltellesfl/pitaya/metrics"
+	metricsmocks "github.com/ltellesfl/pitaya/metrics/mocks"
+	"github.com/ltellesfl/pitaya/protos"
+	"github.com/ltellesfl/pitaya/route"
+	"github.com/ltellesfl/pitaya/session"
 	nats "github.com/nats-io/nats.go"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/conn/message"
-	"github.com/topfreegames/pitaya/constants"
-	e "github.com/topfreegames/pitaya/errors"
-	"github.com/topfreegames/pitaya/helpers"
-	"github.com/topfreegames/pitaya/metrics"
-	metricsmocks "github.com/topfreegames/pitaya/metrics/mocks"
-	"github.com/topfreegames/pitaya/protos"
-	"github.com/topfreegames/pitaya/route"
-	"github.com/topfreegames/pitaya/session"
 )
 
 func TestNewNatsRPCClient(t *testing.T) {
@@ -458,9 +458,9 @@ func TestNatsRPCClientCall(t *testing.T) {
 			time.Sleep(50 * time.Millisecond)
 			res, err := rpcClient.Call(context.Background(), protos.RPCType_Sys, rt, ss, msg, sv2)
 			assert.Equal(t, table.expected, res)
-                        if err != nil {
-			  assert.Contains(t, err.Error(), table.err.Error())
-                        }
+			if err != nil {
+				assert.Contains(t, err.Error(), table.err.Error())
+			}
 			err = subs.Unsubscribe()
 			assert.NoError(t, err)
 			conn.Close()

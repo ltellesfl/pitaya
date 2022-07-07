@@ -27,11 +27,11 @@ import (
 	"os"
 	"testing"
 
+	"github.com/ltellesfl/pitaya/constants"
+	pcontext "github.com/ltellesfl/pitaya/context"
+	"github.com/ltellesfl/pitaya/tracing/jaeger"
 	opentracing "github.com/opentracing/opentracing-go"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/constants"
-	pcontext "github.com/topfreegames/pitaya/context"
-	"github.com/topfreegames/pitaya/tracing/jaeger"
 )
 
 var closer io.Closer
@@ -74,11 +74,11 @@ func TestExtractSpan(t *testing.T) {
 }
 
 func TestExtractSpanInjectedSpan(t *testing.T) {
-        
+
 	span := opentracing.StartSpan("someOp")
-        span.SetBaggageItem("some_key", "12345")
+	span.SetBaggageItem("some_key", "12345")
 	span.SetBaggageItem("some-other-key", "42")
-        expectedBaggage := map[string]string{"some_key": "12345", "some-other-key": "42"}
+	expectedBaggage := map[string]string{"some_key": "12345", "some-other-key": "42"}
 
 	spanData := opentracing.TextMapCarrier{}
 	tracer := opentracing.GlobalTracer()
@@ -89,7 +89,7 @@ func TestExtractSpanInjectedSpan(t *testing.T) {
 
 	spanCtx, err := ExtractSpan(ctx)
 	assert.NoError(t, err)
-        assertBaggage(t, spanCtx, expectedBaggage)
+	assertBaggage(t, spanCtx, expectedBaggage)
 }
 
 func TestExtractSpanNoSpan(t *testing.T) {

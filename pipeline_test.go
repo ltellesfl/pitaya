@@ -24,8 +24,8 @@ import (
 	"context"
 	"testing"
 
+	"github.com/ltellesfl/pitaya/pipeline"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/pipeline"
 )
 
 func resetPipelines() {

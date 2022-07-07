@@ -23,11 +23,11 @@ package groups
 import (
 	"testing"
 
-	"github.com/topfreegames/pitaya/config"
+	"github.com/ltellesfl/pitaya/config"
 	"go.etcd.io/etcd/tests/v3/integration"
 )
 
-func createEtcdGroupService(t *testing.T) (*integration.ClusterV3, *EtcdGroupService){
+func createEtcdGroupService(t *testing.T) (*integration.ClusterV3, *EtcdGroupService) {
 	conf := config.NewConfig()
 	integration.BeforeTest(t)
 	cluster := integration.NewClusterV3(t, &integration.ClusterConfig{Size: 1})

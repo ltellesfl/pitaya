@@ -30,10 +30,10 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
+	"github.com/ltellesfl/pitaya/constants"
+	"github.com/ltellesfl/pitaya/logger"
+	"github.com/ltellesfl/pitaya/protos"
 	nats "github.com/nats-io/nats.go"
-	"github.com/topfreegames/pitaya/constants"
-	"github.com/topfreegames/pitaya/logger"
-	"github.com/topfreegames/pitaya/protos"
 )
 
 // NetworkEntity represent low-level network instance
@@ -190,9 +190,15 @@ func OnSessionClose(f func(s *Session)) {
 
 // CloseAll calls Close on all sessions
 func CloseAll() {
-	logger.Log.Debugf("closing all sessions, %d sessions", SessionCount)
+	logger.Log.Debugf("waiting for all sessions to end, %d sessions", SessionCount)
+	for {
+		if SessionCount == 0 {
+			break
+		}
+	}
 	sessionsByID.Range(func(_, value interface{}) bool {
 		s := value.(*Session)
+
 		s.Close()
 		return true
 	})

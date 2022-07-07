@@ -26,11 +26,11 @@ import (
 	"testing"
 
 	"github.com/golang/mock/gomock"
+	"github.com/ltellesfl/pitaya/config"
+	"github.com/ltellesfl/pitaya/constants"
+	"github.com/ltellesfl/pitaya/session"
+	"github.com/ltellesfl/pitaya/session/mocks"
 	"github.com/stretchr/testify/assert"
-	"github.com/topfreegames/pitaya/config"
-	"github.com/topfreegames/pitaya/constants"
-	"github.com/topfreegames/pitaya/session"
-	"github.com/topfreegames/pitaya/session/mocks"
 )
 
 var memoryGroupService *MemoryGroupService
@@ -41,7 +41,7 @@ func TestMain(m *testing.M) {
 	os.Exit(exit)
 }
 
-func setup() {	
+func setup() {
 	conf := config.NewConfig()
 	memoryGroupService = NewMemoryGroupService(conf)
 }
