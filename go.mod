@@ -28,6 +28,8 @@ require (
 	google.golang.org/protobuf v1.28.0
 )
 
+replace github.com/topfreegames/pitaya/v2 v2.0.4 => ./
+
 require (
 	github.com/HdrHistogram/hdrhistogram-go v1.1.2 // indirect
 	github.com/Microsoft/go-winio v0.5.2 // indirect
